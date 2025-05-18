@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Page</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      header {
+        /* background-color: #333; */
+        background-color: #001219;
+        color: white;
+        padding: 2rem;
+        width: 100%;
+        text-align: center;
+      }
+
+      .banner-img img {
+        /* margin-top: 200px; */
+        width: 1530px;
+        height: 600px;
+        position: relative;
+        z-index: 0;
+      }
+
+      .container {
+        margin-top: 17rem;
+        margin-right: -700px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        position: absolute;
+        z-index: 1;
+      }
+
+      .link-button {
+        /* background-color: #0066cc; */
+        /* background-color: #dda310b2; */
+        background: #0000004f;
+        backdrop-filter: blur(20px);
+        color: white;
+        border: none;
+        padding: 1rem 2rem;
+        font-size: 1.5rem;
+        border-radius: 8px;
+        cursor: pointer;
+        width: 250px;
+        text-align: center;
+        text-decoration: none;
+        margin-right: 35px;
+      }
+
+      .link-button:hover {
+        /* background-color: #004f9e; */
+        background-color: #ffba08;
+      }
+
+      .btn2 {
+        margin-bottom: 25px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Welcome to the Email Setup Guide</h1>
+      <p>Select a setup option below:</p>
+    </header>
+    <div class="banner-img">
+      <img src="Images/banner.jpg" alt="banner" />
+    </div>
+
+    <div class="container">
+      <div class="btn2">
+        <a class="link-button" href="Mozilla-Thunderbird.html"
+          >Mozilla Thunderbird Guide</a
+        >
+        <a class="link-button" href="microsoft-outlook.html"
+          >Microsoft Outlook Guide</a
+        >
+      </div>
+
+      <a class="link-button" href="Google-Mail-Send-As.html"
+        >Gmail "Send As" Guide</a
+      >
+    </div>
+
+    <script>
+      // You can also handle links via JavaScript if needed
+      // But plain HTML links are typically best for navigation
+    </script>
+  </body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Google Mail Send As</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/Images/Google-Mail-Send-As/logo.png"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      header {
+        background-color: #333;
+        color: white;
+        width: 100%;
+        padding: 1rem;
+        text-align: center;
+      }
+
+      .guide-box {
+        background: white;
+        border-radius: 10px;
+        padding: 2rem;
+        margin-top: 2rem;
+        max-width: 800px;
+        height: 500px;
+        width: 90%;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      .step-title {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        font-size: 30px;
+        font-weight: 600;
+      }
+
+      .step-description {
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+        font-size: 18px;
+        text-align: left;
+      }
+
+      img {
+        max-width: 100%;
+        height: 300px;
+        border-radius: 8px;
+        margin-bottom: 1.5rem;
+        margin-top: 20px;
+      }
+
+      .button-group {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      button {
+        padding: 0.7rem 1.5rem;
+        background-color: #0066cc;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+        flex: 1;
+        margin: 0 0.5rem;
+      }
+
+      button:hover {
+        background-color: #004f9e;
+      }
+
+      button:disabled {
+        background-color: #cccccc;
+        cursor: default;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Google Mail "Send As" Configuration Guide</h1>
+    </header>
+
+    <div class="guide-box">
+      <div class="step-title" id="stepTitle">Step Title</div>
+      <div class="step-description" id="stepDescription">
+        Step description will appear here.
+      </div>
+      <img id="stepImage" src="" alt="Step Image" />
+
+      <div class="button-group">
+        <button id="prevBtn" onclick="prevStep()">Previous</button>
+        <button id="nextBtn" onclick="nextStep()">Next</button>
+      </div>
+    </div>
+
+    <script>
+      const steps = [
+        {
+          title: "Step 1: Sign in to Gmail",
+          description:
+            "Go to https://mail.google.com and Sign in to your Gmail account.",
+          image: "Images/Google-Mail-Send-As/step1.png",
+        },
+        {
+          title: "Step 2: Go to Settings",
+          description:
+            "Click the ⚙️ gear icon (top right) and Click “See all settings.”",
+          image: "Images/Google-Mail-Send-As/step2.png",
+        },
+        {
+          title: "Step 3: Go to the Tab",
+          description: "Find the tab labeled “Accounts and Import.”",
+          image: "Images/Google-Mail-Send-As/step3.png",
+        },
+        {
+          title: "Step 4: Add Another Email Address",
+          description:
+            "In the section “Send mail as”, click “Add another email address.”",
+          image: "Images/Google-Mail-Send-As/step4.png",
+        },
+        {
+          title: "Step 5: Enter Name and Email",
+          description:
+            "A popup window will appear, Enter: name and email address, Optional: Uncheck “Treat as an alias” if it's a shared mailbox, Click Next Step.",
+          image: "Images/Google-Mail-Send-As/step5.png",
+        },
+        {
+          title: "Step 6: Configure SMTP Settings",
+          description:
+            "Fill in the following: SMTP Server, Username, Password, Port, Choose either TLS or SSL, depending on your server.",
+          image: "Images/Google-Mail-Send-As/step6.png",
+        },
+        {
+          title: "Step 7: Verify Ownership",
+          description:
+            "Gmail will send a verification code to the email address you're adding. Next, Open your other email account and copy the code or click the verification link and Enter the code in Gmail if prompted.",
+          image: "Images/Google-Mail-Send-As/step7.png",
+        },
+      ];
+
+      let currentStep = 0;
+
+      function showStep() {
+        const step = steps[currentStep];
+        document.getElementById("stepTitle").innerText = step.title;
+        document.getElementById("stepDescription").innerText = step.description;
+        document.getElementById("stepImage").src = step.image;
+
+        // Disable/Enable buttons
+        document.getElementById("prevBtn").disabled = currentStep === 0;
+        document.getElementById("nextBtn").disabled =
+          currentStep === steps.length - 1;
+      }
+
+      function nextStep() {
+        if (currentStep < steps.length - 1) {
+          currentStep++;
+          showStep();
+        }
+      }
+
+      function prevStep() {
+        if (currentStep > 0) {
+          currentStep--;
+          showStep();
+        }
+      }
+
+      // Initialize first step
+      showStep();
+    </script>
+  </body>
+</html>
